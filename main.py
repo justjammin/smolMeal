@@ -2,12 +2,12 @@ import pytz
 from pathlib import Path
 import random
 import os
-def cookingWithEchols(meals, numberOfDinners, cook):
+def cookingWithEchols(meals, sides, numberOfDinners, cook):
   mealsForThePeriod = []
   cookOfTheWeek = random.choice(list(cook))
   print("here\'s who's cooking " + cookOfTheWeek)
   while len(mealsForThePeriod) < numberOfDinners:
-    food = random.choice(list(meals))
+    food = random.choice(list(meals)) + " & " + random.choice(list(sides))
     meal= food.title()
     mealsForThePeriod.append(meal)
     print(*mealsForThePeriod, sep = "\n")
@@ -17,7 +17,7 @@ def cookingWithEchols(meals, numberOfDinners, cook):
       print("got it")
       print(mealsForThePeriod, sep = "\n")
       print("let's try something else")
-      food = random.choice(list(meals))
+      food = random.choice(list(meals)) + " & " + random.choice(list(sides))
       meal= food.title()
       mealsForThePeriod.append(meal)
       print(*mealsForThePeriod, sep = "\n")
@@ -26,7 +26,7 @@ def cookingWithEchols(meals, numberOfDinners, cook):
       print("nice, go me here's what we got")
       print(mealsForThePeriod, sep = "\n")
       print("adding more")
-      food = random.choice(list(meals))
+      food = random.choice(list(meals)) + " & " + random.choice(list(sides))
       meal= food.title()
       mealsForThePeriod.append(meal)
       print(*mealsForThePeriod, sep = "\n")
@@ -37,9 +37,7 @@ def cookingWithEchols(meals, numberOfDinners, cook):
     for item in mealsForThePeriod:
       doc.write(item+ '\n')
 
-cookingWithEchols(['taquitos','chicken nuggets','kievs','soups','potstickers','pork buns','salad', 'meat on rice','veggies on rice','stir fry','tacos with rice','quinoa salad','fried rice','tofu on rice','hamburgers','hot dogs','sloppy joe','pulled pork','rotisserie chicken and veggies','salmon and asparagus','brussel sprouts and bacon','shredded beef and rice','chicken and waffles','katsu','stews','hamburg steak and potatoes', 'tacos','burritos','rice pilaf','empanadas','egg on rice','fried rice','transforming rice','tofu and rice','stir fry','buns and rice','potstickers','udon','katsu','hamburg steak and potatoes','loco moco', 'spaghetti','quinoa','beefaroni','linguini','udon','ravioli','penne'], 8, ["Jamin","Elaine"])
-
-
+cookingWithEchols(['taquitos','chicken nuggets','kievs','soups','potstickers','pork buns' 'chicken','roasted veggies','stir fry','tacos','tofu','hamburgers','hot dogs','sloppy joe','pulled pork','salmon','bacon','shredded beef', 'pot roast', 'corned beef hash', 'katsu','stews','hamburg steak', 'burritos','empanadas','egg','onigiri','buns and rice','loco moco', 'meatballs','meatloaf','ravioli'], ['white rice','salad','italian pasta','soups','american pasta','egg rolls','veggies', 'quinoa salad','fried rice', 'yellow rice','fries', 'asparagus','brussel sprouts', 'waffles','potatoes', 'mashed potatoes', 'garlic bread'], 8, ["Jamin","Elaine"])
 
         # goal to rewrite this as classes.
 
